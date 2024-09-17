@@ -3,9 +3,8 @@ import React, { useState } from "react";
 import TaskList from "./TaskList";
 import FormTodo from "./TodoForm";
 
-const Container = () => {
+const Container = ({ token }) => {
   const [list, setList] = useState([]);
-
   const handleAddItem = addItem => {
     setList([...list, addItem]);
   };
