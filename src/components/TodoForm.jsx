@@ -5,12 +5,13 @@ const TodoForm = props => {
   const [description, setDescription] = useState("");
   const handleSubmit = e => {
     e.preventDefault();
+    
     handleAddItem({
       done: false,
       id: (+new Date()).toString(),
       description
     });
-    setDescription("");
+    setDescription(""); 
   };
   return (
     <form onSubmit={handleSubmit}>

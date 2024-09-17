@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import TaskList from "./TaskList";
-import TodoForm from "./TodoForm";
+import FormTodo from "./TodoForm";
 
 const Container = () => {
   const [list, setList] = useState([]);
@@ -12,7 +12,7 @@ const Container = () => {
   return (
     <div>
       {}
-      <TodoForm handleAddItem={handleAddItem} />
+      <FormTodo handleAddItem={handleAddItem} />
       {}
       <TaskList list={list} setList={setList} />
     </div>
