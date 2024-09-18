@@ -7,9 +7,9 @@ const LoginForm = ({ onLogin }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setErrorMessage(''); // Limpiar el mensaje de error antes de intentar el login
+        setErrorMessage(''); // Initialize error message
 
-        // Hacemos una solicitud a la API para autenticar al usuario
+        // Authentication request to the regres.in API
         const response = await fetch('https://reqres.in/api/login', {
             method: 'POST',
             headers: {
@@ -20,35 +20,39 @@ const LoginForm = ({ onLogin }) => {
 
         if (response.ok) {
             const data = await response.json();
-            onLogin(data.token); // Pasa el token al componente padre
+            onLogin(data.token); // Assign the token 
         } else {
-            setErrorMessage('Credenciales inválidas. Inténtalo de nuevo.');
+            setErrorMessage('Invalid credentials. Try it again');
         }
     };
 
     return (
         <form onSubmit={handleSubmit}>
-            <h2>Login</h2>
-            <div>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
+            <h1>Login</h1>
+            <div className='todo-list'>
+                <div className='file-input'>
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </div> 
             </div>
-            <div>
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
+            <div className='todo-list'>
+                <div className='file-input'>
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
             </div>
             <button type="submit">Login</button>
-            {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+            {errorMessage && <p style={{ color: 'yellow' }}>{errorMessage}</p>}
         </form>
     );
 };

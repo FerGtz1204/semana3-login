@@ -10,6 +10,7 @@ const Container = ({ token }) => {
   };
   return (
     <div>
+      <h1>Welcome to the TODO List</h1>
       {}
       <FormTodo handleAddItem={handleAddItem} />
       {}
